@@ -133,7 +133,7 @@ nav {
 
   /* NOTE This creates the fade in/out anumation */
   opacity: 0;
-  transition: all 1s;
+  transition: all 1.5s;
 }
 
 .balance {
@@ -145,6 +145,7 @@ nav {
   padding: .9rem 3.5rem;
   border-radius: .5rem;
   background-color: rgb(10, 72, 83);
+  box-shadow: 0 1rem 3rem .1rem rgb(59, 59, 59);
 }
 
 .balance__label {
@@ -171,7 +172,7 @@ nav {
   background-color: rgba(255, 255, 255, 0.883);
   border-radius: 1rem;
   overflow: scroll;
-  box-shadow: 0 1rem 5rem .5rem rgb(36, 36, 36);
+  box-shadow: 0 1rem 3rem .1rem rgb(59, 59, 59);
 }
 
 .movements__row {
@@ -200,6 +201,7 @@ nav {
 
 .movements__type--deposit {
   background-image: linear-gradient(to top left, #39b385, #9be15d);
+
 }
 
 .movements__type--withdrawal {
@@ -261,15 +263,18 @@ color: rgb(10, 72, 83);
 
 .operation--transfer {
   background-image: linear-gradient(to top left, #07422c, #afdf86);
+  box-shadow: 0 1rem 3rem .1rem rgb(59, 59, 59);
 }
 
 .operation--loan {
  
   background-image: linear-gradient(to top left, #1050a5, #a4aae2);
+  box-shadow: 0 1rem 3rem .1rem rgb(59, 59, 59);
 }
 
 .operation--close {
   background-image: linear-gradient(to top left, #660808, #e2969a);
+  box-shadow: 0 1rem 3rem .1rem rgb(59, 59, 59);
 }
 
 h2 {
