@@ -66,18 +66,33 @@ const inputClosePin = document.querySelector('.form__input--pin');
 
 const openModal = (e) => {
   credentialModal.style.opacity = 100;
-
+  credentialModal.style.display = "unset";
   
-}
 
-inputLoginUsername.addEventListener('mouseover', openModal)
+};
+
+const closeModal = (e) => {
+  
+  credentialModal.style.display = "none";
+
+};
+
+inputLoginUsername.addEventListener('mouseover', openModal);
+
+inputTransferTo.addEventListener('click', openModal);
+
+inputTransferTo.addEventListener('blur', closeModal)
 
 
-const displayMovements = function (movements) {
+
+
+const displayMovements = function (movements, sort = false) {
   containerMovements.innerHTML = '';
 
+  const movs = sort ? movements.slice().sort((a, b)=> a - b) : movements;
 
-  movements.forEach(function (mov, i) {
+
+  movs.forEach(function (mov, i) {
 
     const type = mov > 0 ? 'deposit' : 'withdrawal'
     const html = `
@@ -124,7 +139,7 @@ const createUserName = (acc) => {
  
 
   const calcInterest = acc => {
-    console.log(acc)
+ 
     const rate = acc.interestRate/100;
     const deposit =acc.movements.filter(mov => mov > 0).reduce((acc, mov) => acc + mov * rate , 0);
     labelSumInterest.innerHTML = `$${deposit}`
@@ -214,9 +229,14 @@ const deleteHandler = (e) => {
 
 btnClose.addEventListener('click', deleteHandler)
 
+let sorted = false;
 
+btnSort.addEventListener('click', function(e) {
+  e.preventDefault();
+  displayMovements(currentAcc.movements, !sorted);
+  sorted = !sorted;
 
-
+})
 
 
 
